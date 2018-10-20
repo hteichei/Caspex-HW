@@ -2,11 +2,14 @@ import { APPLY_PROMOTION } from '../actions/promoCode';
 
 const DEFAULT_STATE = {
   promoApplied: false,
+  currency: '$',
   items: [
     {
       title: 'OFM Essentials Racecar-Style Leather Gaming Chair',
-      price: 95,
-      currency: '$',
+      price: 102.96,
+      shippingCost: 3.85,
+      taxes: 8.92,
+      zipCode: 94085,
       description:
         'A race car style chair that provides luxury and comfort whether used during intense gaming sessions or long workdays',
       img:
