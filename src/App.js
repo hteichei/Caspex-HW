@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-// import logo from './logo.svg';
 // import './App.css';
 import Expandable from './Components/Expandable';
+import PriceSummary from './Containers/PriceSummaryContainer';
 
 class App extends Component {
   render() {
@@ -10,24 +10,10 @@ class App extends Component {
         <Expandable showTitle="See Item Details" hideTitle="Hide Item Details">
           <p>Essentials</p>
         </Expandable>
+        <PriceSummary />
       </div>
     );
   }
 }
 
 export default App;
-
-/*
-{
-  promoApplied: false,
-  items: [
-    {
-      title: '',
-      price: '',
-      description: '',
-      img: '',
-    }
-]
-
-}
-*/
