@@ -4,11 +4,14 @@ const DEFAULT_STATE = {
   promoApplied: false,
   items: [
     {
-      title: '',
-      price: '',
-      description: '',
-      img: '',
-      quantity: ''
+      title: 'OFM Essentials Racecar-Style Leather Gaming Chair',
+      price: 95,
+      currency: '$',
+      description:
+        'A race car style chair that provides luxury and comfort whether used during intense gaming sessions or long workdays',
+      img:
+        'https://i5.walmartimages.com/asr/58ed28c8-42fa-4966-902c-292940257bb1_1.ef2b733f30c41bfa79d99303e6a11627.jpeg?odnHeight=450&odnWidth=450&odnBg=FFFFFF',
+      quantity: 1
     }
   ]
 };
@@ -21,3 +24,5 @@ const rootReducer = (state = DEFAULT_STATE, action) => {
       return state;
   }
 };
+
+export default rootReducer;
