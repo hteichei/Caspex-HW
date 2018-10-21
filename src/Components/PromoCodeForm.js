@@ -1,16 +1,42 @@
 import React, { Component } from 'react';
 
 class PromoCodeForm extends Component {
+  state = { promoCode: '' };
+
+  handleChange = evt => {
+    this.setState({
+      promoCode: evt.target.value
+    });
+  };
+
+  handleSubmit = evt => {
+    evt.preventDefault();
+    if (this.state.promoCode === 'DISCOUNT') {
+      this.props.applyPromotion();
+    }
+    this.setState({
+      promoCode: ''
+    });
+  };
+
   render() {
     return (
       <div>
-        <form action="">
+        <form onSubmit={this.handleSubmit}>
           <div>
             <label>Promo Code</label>
           </div>
-          <input type="text" name="promo" />
+          <input
+            type="text"
+            name="promo"
+            value={this.state.promoCode}
+            onChange={this.handleChange}
+          />
+          <button type="submit">Apply</button>
         </form>
       </div>
     );
   }
 }
+
+export default PromoCodeForm;
