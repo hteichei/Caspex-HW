@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Expandable from './Expandable';
 import PriceSummary from '../Containers/PriceSummaryContainer';
 import ItemDetailsCard from './ItemDetailsCard';
+import PromoCodeForm from '../Containers/PromoCodeFormContainer';
 
 class CheckoutCard extends Component {
   render() {
@@ -25,7 +26,7 @@ class CheckoutCard extends Component {
           ))}
         </Expandable>
         <Expandable showTitle="Apply Promo Code" hideTitle="Hide Promo Code">
-          <div />
+          <PromoCodeForm />
         </Expandable>
       </div>
     );
