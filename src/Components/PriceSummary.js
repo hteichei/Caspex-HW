@@ -7,6 +7,9 @@ class PriceSummary extends Component {
     pickupSavings: '',
     taxes: ''
   };
+
+  //FIGURE OUT HOW TO USE THIS FUNCTION TO REDUCE CODE DUPLICATION
+
   // calculate = field => {
   //   const { items } = this.props;
   //   const result = items.reduce((acc, obj) => {
@@ -21,6 +24,7 @@ class PriceSummary extends Component {
   // };
 
   //NEED TO FACTOR IN QUANTITY WHEN DOING CALCULATIONS!!!
+  //NEED TO MAKE FUNCTION TO ROUND TO TWO DECIMALS!!!
 
   componentDidMount() {
     this.getSubTotal();
@@ -64,7 +68,9 @@ class PriceSummary extends Component {
 
   getTotal = () => {
     const { subTotal, pickupSavings, taxes } = this.state;
-    const total = subTotal - pickupSavings + taxes;
+    let total = subTotal - pickupSavings + taxes;
+    //APPLY DISCOUNT IF CORRECT PROMO CODE IS ENTERED
+    total = this.props.promoApplied ? total * 0.9 : total;
     return total;
   };
 
