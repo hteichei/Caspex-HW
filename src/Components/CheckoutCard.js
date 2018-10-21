@@ -1,15 +1,20 @@
 import React, { Component } from 'react';
 import Expandable from './Expandable';
-import PriceSummary from '../Containers/PriceSummaryContainer';
+import PriceSummary from './PriceSummary';
 import ItemDetailsCard from './ItemDetailsCard';
 import PromoCodeForm from '../Containers/PromoCodeFormContainer';
 
 class CheckoutCard extends Component {
   render() {
-    const { items, currency } = this.props;
+    const { items, currency, zipCode, promoApplied } = this.props;
     return (
       <div>
-        <PriceSummary />
+        <PriceSummary
+          items={items}
+          currency={currency}
+          zipCode={zipCode}
+          promoApplied={promoApplied}
+        />
         <Expandable showTitle="See Item Details" hideTitle="Hide Item Details">
           {items.map((item, idx) => (
             <div key={idx}>

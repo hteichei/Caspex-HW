@@ -4,7 +4,9 @@ import { connect } from 'react-redux';
 const mapStateToProps = function(state) {
   return {
     items: state.items,
-    currency: state.currency
+    currency: state.currency,
+    zipCode: state.zipCode,
+    promoApplied: state.promoApplied
   };
 };
 
