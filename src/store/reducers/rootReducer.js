@@ -22,7 +22,7 @@ const DEFAULT_STATE = {
 const rootReducer = (state = DEFAULT_STATE, action) => {
   switch (action.type) {
     case APPLY_PROMOTION:
-      return { promoApplied: true };
+      return { promoApplied: true, ...state };
     default:
       return state;
   }
