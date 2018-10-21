@@ -30,6 +30,7 @@ class CheckoutCard extends Component {
             </div>
           ))}
         </Expandable>
+        <hr />
         <Expandable showTitle="Apply Promo Code" hideTitle="Hide Promo Code">
           <PromoCodeForm />
         </Expandable>
