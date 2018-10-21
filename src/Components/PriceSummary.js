@@ -20,6 +20,8 @@ class PriceSummary extends Component {
   //   return this.calculate(shippingCost);
   // };
 
+  //NEED TO FACTOR IN QUANTITY WHEN DOING CALCULATIONS!!!
+
   componentDidMount() {
     this.getSubTotal();
     this.getPickupSavings();
@@ -27,6 +29,7 @@ class PriceSummary extends Component {
   }
 
   getSubTotal = () => {
+    console.log('items', this.props.items);
     const { items } = this.props;
     const result = items.reduce((acc, obj) => {
       return acc + obj.price;
@@ -66,7 +69,7 @@ class PriceSummary extends Component {
   };
 
   render() {
-    const { currency } = this.props;
+    const { currency, zipCode } = this.props;
     const { subTotal, pickupSavings, taxes } = this.state;
     return (
       <div>
@@ -79,12 +82,18 @@ class PriceSummary extends Component {
         <PriceDetailText
           currency={currency}
           category="Pickup Savings"
+          minus="-"
           value={pickupSavings}
         />
-        <PriceDetailText currency={currency} category="Taxes" value={taxes} />
         <PriceDetailText
           currency={currency}
-          category="Total"
+          category={`Est. taxes & fees`}
+          wrappedLine={`(Based on ${zipCode})`}
+          value={taxes}
+        />
+        <PriceDetailText
+          currency={currency}
+          category="Est. Total"
           value={this.getTotal()}
         />
       </div>
