@@ -1,7 +1,6 @@
 import { APPLY_PROMOTION } from '../actions/promoCode';
 
 const DEFAULT_STATE = {
-  promoApplied: false,
   currency: '$',
   zipCode: 94085,
   items: [
@@ -16,13 +15,14 @@ const DEFAULT_STATE = {
         'https://i5.walmartimages.com/asr/58ed28c8-42fa-4966-902c-292940257bb1_1.ef2b733f30c41bfa79d99303e6a11627.jpeg?odnHeight=450&odnWidth=450&odnBg=FFFFFF',
       quantity: 1
     }
-  ]
+  ],
+  promoApplied: false
 };
 
 const rootReducer = (state = DEFAULT_STATE, action) => {
   switch (action.type) {
     case APPLY_PROMOTION:
-      return { promoApplied: true, ...state };
+      return { ...state, promoApplied: true };
     default:
       return state;
   }
