@@ -3,28 +3,10 @@ import PriceDetailText from './PriceDetailText';
 
 class PriceSummary extends Component {
   state = {
-    subTotal: '',
-    pickupSavings: '',
+    price: '',
+    shippingCost: '',
     taxes: ''
   };
-
-  //FIGURE OUT HOW TO USE THIS FUNCTION TO REDUCE CODE DUPLICATION
-
-  // calculate = field => {
-  //   const { items } = this.props;
-  //   const result = items.reduce((acc, obj) => {
-  //     return acc + obj[field];
-  //   }, 0);
-  //   console.log('result', result);
-  //   return result;
-  // };
-
-  // getPickupSavings = shippingCost => {
-  //   return this.calculate(shippingCost);
-  // };
-
-  //NEED TO FACTOR IN QUANTITY WHEN DOING CALCULATIONS!!!
-  //NEED TO MAKE FUNCTION TO ROUND TO TWO DECIMALS!!!
 
   componentDidMount() {
     this.getSubTotal();
@@ -32,64 +14,56 @@ class PriceSummary extends Component {
     this.getTaxes();
   }
 
-  getSubTotal = () => {
-    console.log('items', this.props.items);
+  calculate = field => {
     const { items } = this.props;
     const result = items.reduce((acc, obj) => {
-      return acc + obj.price;
+      return acc + obj[field];
     }, 0);
     this.setState({
-      subTotal: result
+      [field]: result
     });
-    return result;
   };
 
-  getPickupSavings = () => {
-    const { items } = this.props;
-    const result = items.reduce((acc, obj) => {
-      return acc + obj.shippingCost;
-    }, 0);
-    this.setState({
-      pickupSavings: result
-    });
-    return result;
+  getPickupSavings = shippingCost => {
+    return this.calculate('shippingCost');
   };
 
-  getTaxes = () => {
-    const { items } = this.props;
-    const result = items.reduce((acc, obj) => {
-      return acc + obj.taxes;
-    }, 0);
-    this.setState({
-      taxes: result
-    });
-    return result;
+  getSubTotal = subTotal => {
+    return this.calculate('price');
   };
+
+  getTaxes = taxes => {
+    return this.calculate('taxes');
+  };
+
+  //NEED TO FACTOR IN QUANTITY WHEN DOING CALCULATIONS!!!
+  //NEED TO MAKE FUNCTION TO ROUND TO TWO DECIMALS!!!
 
   getTotal = () => {
-    const { subTotal, pickupSavings, taxes } = this.state;
-    let total = subTotal - pickupSavings + taxes;
+    const { price, shippingCost, taxes } = this.state;
+    let total = price - shippingCost + taxes;
     //APPLY DISCOUNT IF CORRECT PROMO CODE IS ENTERED
-    total = this.props.promoApplied ? total * 0.9 : total;
+    total = this.props.promoApplied ? (total * 0.9).toFixed(2) : total;
+    console.log(total);
     return total;
   };
 
   render() {
     const { currency, zipCode } = this.props;
-    const { subTotal, pickupSavings, taxes } = this.state;
+    const { price, shippingCost, taxes } = this.state;
     return (
       <div>
         <h1>Checkout</h1>
         <PriceDetailText
           currency={currency}
           category="Sub Total"
-          value={subTotal}
+          value={price}
         />
         <PriceDetailText
           currency={currency}
           category="Pickup Savings"
           minus="-"
-          value={pickupSavings}
+          value={shippingCost}
         />
         <PriceDetailText
           currency={currency}
@@ -97,6 +71,7 @@ class PriceSummary extends Component {
           wrappedLine={`(Based on ${zipCode})`}
           value={taxes}
         />
+        <hr />
         <PriceDetailText
           currency={currency}
           category="Est. Total"
