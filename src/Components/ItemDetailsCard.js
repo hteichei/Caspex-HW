@@ -12,14 +12,17 @@ class ItemDetailsCard extends Component {
         <div className="details">
           <p>{title}</p>
           <p>
-            <span>
+            <span className="cost">
               {currency}
               {price - shippingCost}
             </span>
             <span> </span>
             <span className="qty">{`Qty: ${quantity}`}</span>
           </p>
-          <p style={{ color: 'grey', textDecoration: 'line-through' }}>
+          <p
+            className="cost"
+            style={{ color: 'grey', textDecoration: 'line-through' }}
+          >
             {currency}
             {price}
           </p>

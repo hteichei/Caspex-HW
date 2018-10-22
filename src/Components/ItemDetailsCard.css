@@ -29,3 +29,7 @@ img {
 .details > p {
   margin: 0 0;
 }
+
+.cost {
+  font-weight: bold;
+}
