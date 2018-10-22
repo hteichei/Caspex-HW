@@ -10,11 +10,9 @@ describe('<Expandable />', () => {
   );
 
   it('renders a button to expand content', () => {
-    console.log(wrapper.debug());
     expect(wrapper.find('button').text()).toEqual('See Item Details +');
   });
   it('renders children when toggle button is pressed', () => {
-    console.log(wrapper.debug());
     wrapper.find('button').simulate('click');
     expect(wrapper.find('.content').text()).toEqual('Essentials');
   });

@@ -13,11 +13,9 @@ describe('<Tooltip />', () => {
   );
 
   it('renders the title', () => {
-    console.log(wrapper.debug());
     expect(wrapper.find('.title').text()).toEqual('Pickup Savings');
   });
   it('renders tip component on mouse hover', () => {
-    console.log(wrapper.debug());
     wrapper.find('.title').simulate('mouseOver');
     expect(wrapper.find('.tooltip').text()).toEqual(
       'Picking up your order in store helps cut costs.'

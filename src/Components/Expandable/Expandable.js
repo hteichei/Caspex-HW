@@ -14,7 +14,7 @@ class Expandable extends Component {
 
   render() {
     const { expanded } = this.state;
-    const { showTitle, hideTitle, children, plusIcon } = this.props;
+    const { showTitle, hideTitle, children } = this.props;
     return (
       <div>
         <button onClick={this.toggleExpand}>
