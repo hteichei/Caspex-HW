@@ -4,6 +4,8 @@
 
 - Fork and Clone the Repository
 
+### `cd Caspex-HW` 
+
 ### `npm install` 
 
 ## Available Scripts
