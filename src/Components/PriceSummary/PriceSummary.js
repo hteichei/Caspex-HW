@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import PriceDetailText from './PriceDetailText';
-import Tooltip from './Tooltip';
+import PriceDetailText from '../PriceDetailText/PriceDetailText';
+import Tooltip from '../Tooltip/Tooltip';
 
 class PriceSummary extends Component {
   state = {

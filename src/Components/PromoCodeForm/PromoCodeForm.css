@@ -16,6 +16,12 @@ label {
   width: 30%;
 }
 
+.applyBtn:hover {
+  background-color: lightgreen;
+  color: white;
+  font-weight: bold;
+}
+
 input {
   outline: none;
   width: 40%;

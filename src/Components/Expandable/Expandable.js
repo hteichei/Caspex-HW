@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import './Expandable.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 
 class Expandable extends Component {
   state = {
@@ -16,7 +14,7 @@ class Expandable extends Component {
 
   render() {
     const { expanded } = this.state;
-    const { showTitle, hideTitle, children } = this.props;
+    const { showTitle, hideTitle, children, plusIcon } = this.props;
     return (
       <div>
         <button onClick={this.toggleExpand}>

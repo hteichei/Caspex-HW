@@ -1,4 +1,4 @@
-import CheckoutCard from '../Components/CheckoutCard';
+import CheckoutCard from '../Components/CheckoutCard/CheckoutCard';
 import { connect } from 'react-redux';
 
 const mapStateToProps = function(state) {

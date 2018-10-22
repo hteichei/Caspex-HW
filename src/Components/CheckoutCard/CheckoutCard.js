@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import './CheckoutCard.css';
-import Expandable from './Expandable';
-import PriceSummary from './PriceSummary';
-import ItemDetailsCard from './ItemDetailsCard';
-import PromoCodeForm from '../Containers/PromoCodeFormContainer';
+import Expandable from '../Expandable/Expandable';
+import PriceSummary from '../PriceSummary/PriceSummary';
+import ItemDetailsCard from '../ItemDetailsCard/ItemDetailsCard';
+import PromoCodeForm from '../../Containers/PromoCodeFormContainer';
 
 class CheckoutCard extends Component {
   render() {
