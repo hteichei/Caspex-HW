@@ -4,7 +4,7 @@
 
 - Fork and Clone the Repository
 
-### `cd Caspex-HW` 
+### `cd Checkout-Cart-React-App` 
 
 ### `npm install` 
 
