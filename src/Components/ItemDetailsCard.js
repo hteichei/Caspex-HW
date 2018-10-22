@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
+import './ItemDetailsCard.css';
 
 class ItemDetailsCard extends Component {
   render() {
     const { title, img, quantity, price, shippingCost, currency } = this.props;
     return (
-      <div>
-        <div>
+      <div className="detailsContainer">
+        <div className="imgContainer">
           <img src={img} alt={title} />
         </div>
-        <div>
+        <div className="details">
           <p>{title}</p>
           <p>
             <span>
@@ -16,7 +17,7 @@ class ItemDetailsCard extends Component {
               {price - shippingCost}
             </span>
             <span> </span>
-            <span>{`Qty: ${quantity}`}</span>
+            <span className="qty">{`Qty: ${quantity}`}</span>
           </p>
           <p style={{ color: 'grey', textDecoration: 'line-through' }}>
             {currency}

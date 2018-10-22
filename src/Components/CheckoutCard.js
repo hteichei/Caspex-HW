@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './CheckoutCard.css';
 import Expandable from './Expandable';
 import PriceSummary from './PriceSummary';
 import ItemDetailsCard from './ItemDetailsCard';
@@ -8,7 +9,7 @@ class CheckoutCard extends Component {
   render() {
     const { items, currency, zipCode, promoApplied } = this.props;
     return (
-      <div>
+      <div className="container">
         <PriceSummary
           items={items}
           currency={currency}
@@ -30,7 +31,7 @@ class CheckoutCard extends Component {
             </div>
           ))}
         </Expandable>
-        <hr />
+        <br />
         <Expandable showTitle="Apply Promo Code" hideTitle="Hide Promo Code">
           <PromoCodeForm />
         </Expandable>

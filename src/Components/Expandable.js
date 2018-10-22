@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import './Expandable.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 
 class Expandable extends Component {
   state = {

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import CheckoutCard from './Containers/CheckoutCardContainer';
+import CheckoutCard from '../Containers/CheckoutCardContainer';
+import './App.css';
 
 class App extends Component {
   render() {

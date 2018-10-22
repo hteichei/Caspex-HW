@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './PromoCodeForm.css';
 
 class PromoCodeForm extends Component {
   state = { promoCode: '' };
@@ -32,7 +33,9 @@ class PromoCodeForm extends Component {
             value={this.state.promoCode}
             onChange={this.handleChange}
           />
-          <button type="submit">Apply</button>
+          <button className="applyBtn" type="submit">
+            Apply
+          </button>
         </form>
       </div>
     );

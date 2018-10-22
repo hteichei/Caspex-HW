@@ -1,0 +1,22 @@
+form {
+  margin-top: 0.75em;
+}
+
+label {
+  color: grey;
+  font-size: 0.75em;
+}
+
+.applyBtn {
+  border: 1px solid black;
+  text-decoration: none;
+  padding: 0.5em 0.5em;
+  margin-left: 1em;
+  border-radius: 25px / 17px;
+  width: 30%;
+}
+
+input {
+  outline: none;
+  width: 40%;
+}

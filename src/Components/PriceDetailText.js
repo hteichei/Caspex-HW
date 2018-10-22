@@ -1,18 +1,32 @@
 import React, { Component } from 'react';
+import './PriceDetailText.css';
 
 class PriceDetailText extends Component {
   render() {
-    const { category, value, currency, minus, wrappedLine } = this.props;
+    const {
+      category,
+      value,
+      currency,
+      minus,
+      wrappedLine,
+      discount,
+      pickup,
+      total
+    } = this.props;
     return (
-      <div>
-        <p>
-          <span>{category}</span>{' '}
-          <span>
+      <div className="priceDiv">
+        <p className="priceContainer">
+          <span className={pickup ? 'pickup' : total ? 'total' : ''}>
+            {category}
+          </span>{' '}
+          <span
+            className={discount ? 'value discount' : total ? 'total' : 'value'}
+          >
             {minus && minus}
             {currency}
             {value}
           </span>
-          <p>{wrappedLine && wrappedLine}</p>
+          {wrappedLine && <span>{wrappedLine}</span>}
         </p>
       </div>
     );

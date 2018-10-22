@@ -37,7 +37,6 @@ class PriceSummary extends Component {
   };
 
   //NEED TO FACTOR IN QUANTITY WHEN DOING CALCULATIONS!!!
-  //NEED TO MAKE FUNCTION TO ROUND TO TWO DECIMALS!!!
 
   getTotal = () => {
     const { price, shippingCost, taxes } = this.state;
@@ -64,6 +63,8 @@ class PriceSummary extends Component {
           category="Pickup Savings"
           minus="-"
           value={shippingCost}
+          discount={true}
+          pickup={true}
         />
         <PriceDetailText
           currency={currency}
@@ -74,8 +75,9 @@ class PriceSummary extends Component {
         <hr />
         <PriceDetailText
           currency={currency}
-          category="Est. Total"
+          category="Est. total"
           value={this.getTotal()}
+          total={true}
         />
       </div>
     );

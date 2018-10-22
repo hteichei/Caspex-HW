@@ -1,0 +1,36 @@
+.priceDiv {
+  width: 100%;
+}
+
+.priceContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.value {
+  font-weight: bold;
+}
+
+.discount {
+  color: red;
+}
+
+.total {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.pickup {
+  text-decoration: underline;
+}
+
+p {
+  margin: 1em 0;
+}
+
+.wrapped {
+  margin: 0 0;
+}
