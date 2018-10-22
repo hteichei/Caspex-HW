@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PriceDetailText from './PriceDetailText';
+import Tooltip from './Tooltip';
 
 class PriceSummary extends Component {
   state = {
@@ -36,14 +37,11 @@ class PriceSummary extends Component {
     return this.calculate('taxes');
   };
 
-  //NEED TO FACTOR IN QUANTITY WHEN DOING CALCULATIONS!!!
-
   getTotal = () => {
     const { price, shippingCost, taxes } = this.state;
     let total = price - shippingCost + taxes;
     //APPLY DISCOUNT IF CORRECT PROMO CODE IS ENTERED
     total = this.props.promoApplied ? (total * 0.9).toFixed(2) : total;
-    console.log(total);
     return total;
   };
 
@@ -60,7 +58,11 @@ class PriceSummary extends Component {
         />
         <PriceDetailText
           currency={currency}
-          category="Pickup Savings"
+          category={
+            <Tooltip tip="Picking up your order in store helps cut costs.">
+              <span>Pickup Savings</span>
+            </Tooltip>
+          }
           minus="-"
           value={shippingCost}
           discount={true}
